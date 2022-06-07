@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ozkky.AdvertisementApp.Common
 {
-    public class Response<T> : Response
+    public class Response<T> : Response, IResponse<T>
     {
         public T Data { get; set; }
 

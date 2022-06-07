@@ -10,6 +10,6 @@ namespace Ozkky.AdvertisementApp.Entities
     {
         public string Definition { get; set; }
 
-        public List<AppRole> AppUsers { get; set; }
+        public List<AppUser> AppUsers { get; set; }
     }
 }

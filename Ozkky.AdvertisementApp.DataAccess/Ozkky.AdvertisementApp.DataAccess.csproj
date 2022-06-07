@@ -14,7 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ozkky.AdvertisementApp.Common\Ozkky.AdvertisementApp.Common.csproj" />
     <ProjectReference Include="..\Ozkky.AdvertisementApp.Entities\Ozkky.AdvertisementApp.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>

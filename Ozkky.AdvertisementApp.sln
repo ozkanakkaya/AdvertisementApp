@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozkky.AdvertisementApp.Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozkky.AdvertisementApp.Entities", "Ozkky.AdvertisementApp.Entities\Ozkky.AdvertisementApp.Entities.csproj", "{DD988086-78A0-4BF1-9ADD-ABC4EBDA6FE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozkky.AdvertisementApp.DataAccess", "Ozkky.AdvertisementApp.DataAccess\Ozkky.AdvertisementApp.DataAccess.csproj", "{16D610AC-6B05-45CD-B9E8-A9CD33FD0B86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DD988086-78A0-4BF1-9ADD-ABC4EBDA6FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD988086-78A0-4BF1-9ADD-ABC4EBDA6FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD988086-78A0-4BF1-9ADD-ABC4EBDA6FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D610AC-6B05-45CD-B9E8-A9CD33FD0B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D610AC-6B05-45CD-B9E8-A9CD33FD0B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D610AC-6B05-45CD-B9E8-A9CD33FD0B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D610AC-6B05-45CD-B9E8-A9CD33FD0B86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

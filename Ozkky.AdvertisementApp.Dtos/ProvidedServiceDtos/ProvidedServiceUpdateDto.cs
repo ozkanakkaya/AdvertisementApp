@@ -7,7 +7,7 @@ using Ozkky.AdvertisementApp.Dtos.Interfaces;
 
 namespace Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos
 {
-    public class ProvidedServiceUpdateDto : IDto
+    public class ProvidedServiceUpdateDto : IUpdateDto
     {
         public int Id { get; set; }
 

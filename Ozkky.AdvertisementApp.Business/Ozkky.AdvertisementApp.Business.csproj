@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ozkky.AdvertisementApp.DataAccess\Ozkky.AdvertisementApp.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

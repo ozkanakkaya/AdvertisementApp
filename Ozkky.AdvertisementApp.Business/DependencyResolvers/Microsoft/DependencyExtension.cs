@@ -3,7 +3,9 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ozkky.AdvertisementApp.Business.Interfaces;
 using Ozkky.AdvertisementApp.Business.Mappings;
+using Ozkky.AdvertisementApp.Business.Services;
 using Ozkky.AdvertisementApp.Business.ValidationRules;
 using Ozkky.AdvertisementApp.DataAccess.Contexts;
 using Ozkky.AdvertisementApp.DataAccess.UnitOfWork;
@@ -37,6 +39,8 @@ namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
 
             services.AddTransient<IValidator<ProvidedServiceCreateDto>, ProvidedServiceCreateDtoValidator>();
             services.AddTransient<IValidator<ProvidedServiceUpdateDto>, ProvidedServiceUpdateDtoValidator>();
+
+            services.AddScoped<IProvidedServiceService, ProvidedServiceService>();
         }
     }
 }

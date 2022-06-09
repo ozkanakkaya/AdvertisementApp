@@ -9,7 +9,7 @@ using Ozkky.AdvertisementApp.Business.Services;
 using Ozkky.AdvertisementApp.Business.ValidationRules;
 using Ozkky.AdvertisementApp.DataAccess.Contexts;
 using Ozkky.AdvertisementApp.DataAccess.UnitOfWork;
-using Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos;
+using Ozkky.AdvertisementApp.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

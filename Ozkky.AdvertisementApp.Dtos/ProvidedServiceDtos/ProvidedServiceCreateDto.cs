@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ozkky.AdvertisementApp.Dtos.Interfaces;
 
-namespace Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos
+namespace Ozkky.AdvertisementApp.Dtos
 {
     public class ProvidedServiceCreateDto : IDto
     {

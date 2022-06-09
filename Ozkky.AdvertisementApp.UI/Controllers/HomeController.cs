@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Ozkky.AdvertisementApp.Business.Interfaces;
+using Ozkky.AdvertisementApp.UI.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _providedServiceService.GetAllAsync();
-            return View();
+            return this.ResponseView(response);
         }
     }
 }

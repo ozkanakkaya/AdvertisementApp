@@ -2,7 +2,7 @@
 using FluentValidation;
 using Ozkky.AdvertisementApp.Business.Interfaces;
 using Ozkky.AdvertisementApp.DataAccess.UnitOfWork;
-using Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos;
+using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.Entities;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos;
+﻿using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.Entities;
 using System;
 using System.Collections.Generic;

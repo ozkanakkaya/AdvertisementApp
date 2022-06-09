@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ozkky.AdvertisementApp.Dtos.ProvidedServiceDtos;
+using Ozkky.AdvertisementApp.Dtos;
 
 namespace Ozkky.AdvertisementApp.Business.ValidationRules
 {

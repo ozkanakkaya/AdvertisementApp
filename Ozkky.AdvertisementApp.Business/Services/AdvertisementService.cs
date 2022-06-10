@@ -13,7 +13,7 @@ using Ozkky.AdvertisementApp.Entities;
 using Ozkky.AdvertisementApp.Business.Services;
 using Ozkky.AdvertisementApp.Common.Enums;
 
-namespace Udemy.AdvertisementApp.Business.Services
+namespace Ozkky.AdvertisementApp.Business.Services
 {
     public class AdvertisementService : Service<AdvertisementCreateDto, AdvertisementUpdateDto, AdvertisementListDto, Advertisement>, IAdvertisementService
     {

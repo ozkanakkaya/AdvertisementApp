@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ozkky.AdvertisementApp.Business.Interfaces;
 using Ozkky.AdvertisementApp.Business.Mappings;
+using Ozkky.AdvertisementApp.Business.Mappings.AutoMapper;
 using Ozkky.AdvertisementApp.Business.Services;
 using Ozkky.AdvertisementApp.Business.ValidationRules;
 using Ozkky.AdvertisementApp.DataAccess.Contexts;
@@ -15,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Udemy.AdvertisementApp.Business.Services;
 
 namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
 {
@@ -30,6 +32,7 @@ namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
             var mapperConfiguration = new MapperConfiguration(opt =>
               {
                   opt.AddProfile(new ProvidedServiceProfile());
+                  opt.AddProfile(new AdvertisementProfile());
               });
 
             var mapper = mapperConfiguration.CreateMapper();
@@ -39,8 +42,12 @@ namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
 
             services.AddTransient<IValidator<ProvidedServiceCreateDto>, ProvidedServiceCreateDtoValidator>();
             services.AddTransient<IValidator<ProvidedServiceUpdateDto>, ProvidedServiceUpdateDtoValidator>();
+            services.AddTransient<IValidator<AdvertisementCreateDto>, AdvertisementCreateDtoValidator>();
+            services.AddTransient<IValidator<AdvertisementUpdateDto>, AdvertisementUpdateDtoValidator>();
+
 
             services.AddScoped<IProvidedServiceService, ProvidedServiceService>();
+            services.AddScoped<IAdvertisementService, AdvertisementService>();
         }
     }
 }

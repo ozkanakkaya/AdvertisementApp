@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ozkky.AdvertisementApp.DataAccess.Contexts;
 
 namespace Ozkky.AdvertisementApp.DataAccess.Migrations
 {
     [DbContext(typeof(AdvertisementContext))]
-    partial class AdvertisementContextModelSnapshot : ModelSnapshot
+    [Migration("20220611170721_DataAdded")]
+    partial class DataAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

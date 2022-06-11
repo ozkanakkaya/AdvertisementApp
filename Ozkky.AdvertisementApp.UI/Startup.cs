@@ -1,8 +1,8 @@
 using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,10 +11,6 @@ using Ozkky.AdvertisementApp.Business.Helpers;
 using Ozkky.AdvertisementApp.UI.Mappings.AutoMapper;
 using Ozkky.AdvertisementApp.UI.Models;
 using Ozkky.AdvertisementApp.UI.ValidationRules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Ozkky.AdvertisementApp.UI
 {
@@ -34,6 +30,16 @@ namespace Ozkky.AdvertisementApp.UI
         {
             services.AddDependencies(Configuration);
             services.AddTransient<IValidator<UserCreateModel>, UserCreateModelValidator>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(opt => {
+        opt.Cookie.Name = "AdvertisementCookie";
+        opt.Cookie.HttpOnly = true;//clietside scriptlerden korur.
+        opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;//paylaþýma kapalý.
+        opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;//istek hangisinden gelirse(http yada https) onunla çalýþýr.
+        opt.ExpireTimeSpan = System.TimeSpan.FromDays(20);//20 gün süreli
+        });
+
             services.AddControllersWithViews();
 
             var profiles = ProfileHelper.GetProfiles();
@@ -60,6 +66,9 @@ namespace Ozkky.AdvertisementApp.UI
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

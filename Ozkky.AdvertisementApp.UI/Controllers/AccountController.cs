@@ -10,6 +10,7 @@ using FluentValidation;
 using AutoMapper;
 using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.UI.Extensions;
+using Ozkky.AdvertisementApp.Common.Enums;
 
 namespace Ozkky.AdvertisementApp.UI.Controllers
 {
@@ -45,7 +46,7 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
             if (result.IsValid)
             {
                 var dto = _mapper.Map<AppUserCreateDto>(model);
-                var createResponse = await _appUserService.CreateWithRoleAsync(dto, 2);
+                var createResponse = await _appUserService.CreateWithRoleAsync(dto, (int)RoleType.Member);
                 return this.ResponseRedirectAction(createResponse, "SignIn");
             }
 

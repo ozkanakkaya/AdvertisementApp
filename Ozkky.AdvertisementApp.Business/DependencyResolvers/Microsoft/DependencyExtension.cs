@@ -9,14 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ozkky.AdvertisementApp.Business.Interfaces;
-using Ozkky.AdvertisementApp.Business.Mappings;
 using Ozkky.AdvertisementApp.Business.Mappings.AutoMapper;
 using Ozkky.AdvertisementApp.Business.Services;
 using Ozkky.AdvertisementApp.Business.ValidationRules;
 using Ozkky.AdvertisementApp.DataAccess.Contexts;
 using Ozkky.AdvertisementApp.DataAccess.UnitOfWork;
 using Ozkky.AdvertisementApp.Dtos;
-using Udemy.AdvertisementApp.Business.Mappings.AutoMapper;
 
 namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
 {
@@ -28,17 +26,6 @@ namespace Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft
             {
                 opt.UseSqlServer(configuration.GetConnectionString("Local"));
             });
-
-            var mapperConfiguration = new MapperConfiguration(opt =>
-              {
-                  opt.AddProfile(new ProvidedServiceProfile());
-                  opt.AddProfile(new AdvertisementProfile());
-                  opt.AddProfile(new AppUserProfile());
-                  opt.AddProfile(new GenderProfile());
-              });
-
-            var mapper = mapperConfiguration.CreateMapper();
-            services.AddSingleton(mapper);
 
             services.AddScoped<IUow, Uow>();
 

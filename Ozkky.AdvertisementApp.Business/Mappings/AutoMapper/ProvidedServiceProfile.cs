@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ozkky.AdvertisementApp.Business.Mappings
+namespace Ozkky.AdvertisementApp.Business.Mappings.AutoMapper
 {
     public class ProvidedServiceProfile: Profile
     {

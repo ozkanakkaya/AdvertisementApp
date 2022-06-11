@@ -9,7 +9,7 @@ namespace Ozkky.AdvertisementApp.UI.Extensions
 {
     public static class ControllerExtensions
     {
-        public static IActionResult ResponseRedirectToAction<T>(this Controller controller, IResponse<T> response, string actionName)
+        public static IActionResult ResponseRedirectAction<T>(this Controller controller, IResponse<T> response, string actionName)
         {
             if (response.ResponseType == ResponseType.NotFound)
             {
@@ -33,7 +33,7 @@ namespace Ozkky.AdvertisementApp.UI.Extensions
             return controller.View(response.Data);
         }
 
-        public static IActionResult ResponseRedirectToAction(this Controller controller, IResponse response, string actionName)
+        public static IActionResult ResponseRedirectAction(this Controller controller, IResponse response, string actionName)
         {
             if (response.ResponseType == ResponseType.NotFound)
                 return controller.NotFound();

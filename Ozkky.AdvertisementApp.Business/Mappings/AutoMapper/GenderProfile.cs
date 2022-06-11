@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.Entities;
 
-namespace Udemy.AdvertisementApp.Business.Mappings.AutoMapper
+namespace Ozkky.AdvertisementApp.Business.Mappings.AutoMapper
 {
     public class GenderProfile : Profile
     {

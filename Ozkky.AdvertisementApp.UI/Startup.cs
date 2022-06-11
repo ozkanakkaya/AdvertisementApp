@@ -1,3 +1,5 @@
+using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -5,6 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ozkky.AdvertisementApp.Business.DependencyResolvers.Microsoft;
+using Ozkky.AdvertisementApp.Business.Helpers;
+using Ozkky.AdvertisementApp.UI.Mappings.AutoMapper;
+using Ozkky.AdvertisementApp.UI.Models;
+using Ozkky.AdvertisementApp.UI.ValidationRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +33,20 @@ namespace Ozkky.AdvertisementApp.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDependencies(Configuration);
+            services.AddTransient<IValidator<UserCreateModel>, UserCreateModelValidator>();
             services.AddControllersWithViews();
+
+            var profiles = ProfileHelper.GetProfiles();
+
+            profiles.Add(new UserCreateModelProfile());
+
+            var configuration = new MapperConfiguration(opt =>
+            {
+                opt.AddProfiles(profiles);
+            });
+
+            var mapper = configuration.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

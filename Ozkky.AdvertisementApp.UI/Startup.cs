@@ -38,6 +38,9 @@ namespace Ozkky.AdvertisementApp.UI
         opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;//paylaþýma kapalý.
         opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;//istek hangisinden gelirse(http yada https) onunla çalýþýr.
         opt.ExpireTimeSpan = System.TimeSpan.FromDays(20);//20 gün süreli
+        opt.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/SignIn");
+        opt.LogoutPath = new Microsoft.AspNetCore.Http.PathString("/Account/LogOut");
+        opt.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
         });
 
             services.AddControllersWithViews();

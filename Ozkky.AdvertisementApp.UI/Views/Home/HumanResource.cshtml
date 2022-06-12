@@ -19,7 +19,7 @@
                         <div>
                             @if (User.Identity.IsAuthenticated)
                             {
-                            <a asp-action="Send" asp-controller="Advertisement">Başvur</a>
+                            <a asp-action="Send" asp-controller="Advertisement" asp-route-advertisementId="@Model[i].Id">Başvur</a>
                             }
                             else
                             {

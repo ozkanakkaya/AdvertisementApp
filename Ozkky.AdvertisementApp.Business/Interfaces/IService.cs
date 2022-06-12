@@ -19,7 +19,7 @@ namespace Ozkky.AdvertisementApp.Business.Interfaces
 
         Task<IResponse<UpdateDto>> UpdateAsync(UpdateDto dto);
 
-        Task<IResponse<IDto>> GetByIdAsync(int id);
+        Task<IResponse<IDto>> GetByIdAsync<IDto>(int id);
 
         Task<IResponse> RemoveAsync(int id);
 

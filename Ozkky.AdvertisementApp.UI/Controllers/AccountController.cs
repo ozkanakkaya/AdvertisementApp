@@ -72,7 +72,7 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
         public async Task<IActionResult> SignIn(AppUserLoginDto dto)
         {
             var result = await _appUserService.CheckUserAsync(dto);
-            if (result.ResponseType==Common.ResponseType.Success)
+            if (result.ResponseType == Common.ResponseType.Success)
             {
                 var roleResult = await _appUserService.GetRolesByUserIdAsync(result.Data.Id);
                 var claims = new List<Claim>();
@@ -102,8 +102,15 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            ModelState.AddModelError("", result.Message);
+            ModelState.AddModelError("Kullanıcıadı veya şifre hatalıdır.", result.Message);
             return View(dto);
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -119,5 +119,12 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
                 return RedirectToAction("HumanResource", "Home");
             }
         }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> List()
+        {
+            var list = await _advertisementAppUserService.GetList(AdvertisementAppUserStatusType.Basvurdu);
+            return View();
+        }
     }
 }

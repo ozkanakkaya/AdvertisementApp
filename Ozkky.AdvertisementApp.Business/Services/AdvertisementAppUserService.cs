@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Ozkky.AdvertisementApp.Business.Extensions;
 using Ozkky.AdvertisementApp.Business.Interfaces;
 using Ozkky.AdvertisementApp.Common;
+using Ozkky.AdvertisementApp.Common.Enums;
 using Ozkky.AdvertisementApp.DataAccess.UnitOfWork;
 using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.Entities;
@@ -44,6 +46,15 @@ namespace Ozkky.AdvertisementApp.Business.Services
                 List<CustomValidationError> errors = new List<CustomValidationError> { new CustomValidationError { ErrorMessage = "Bu ilana daha önce başvurdunuz!", PropertyName = "" } };
             }
             return new Response<AdvertisementAppUserCreateDto>(dto, result.ConvertToCustomValidationError());
+        }
+
+        public async Task<List<AdvertisementAppUserListDto>> GetList(AdvertisementAppUserStatusType type)
+        {
+            var query = _uow.GetRepository<AdvertisementAppUser>().GetQuery();
+
+            var list = await query.Include(x => x.Advertisement).Include(x => x.AdvertisementAppUserStatus).Include(x => x.MilitaryStatus).Include(x => x.AppUser).Where(x => x.AdvertisementAppUserStatusId == (int)type).ToListAsync();
+
+            return _mapper.Map<List<AdvertisementAppUserListDto>>(list);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Ozkky.AdvertisementApp.Common;
+using Ozkky.AdvertisementApp.Common.Enums;
 using Ozkky.AdvertisementApp.Dtos;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace Ozkky.AdvertisementApp.Business.Interfaces
     public interface IAdvertisementAppUserService
     {
         Task<IResponse<AdvertisementAppUserCreateDto>> CreateAsync(AdvertisementAppUserCreateDto dto);
+
+        Task<List<AdvertisementAppUserListDto>> GetList(AdvertisementAppUserStatusType type);
     }
 }

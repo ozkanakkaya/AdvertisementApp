@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ozkky.AdvertisementApp.Business.Interfaces;
+using Ozkky.AdvertisementApp.Dtos;
 using Ozkky.AdvertisementApp.UI.Extensions;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,18 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
         {
             var response = await _advertisementService.GetAllAsync();
             return this.ResponseView(response);
+        }
+
+        public IActionResult Create()
+        {
+            return View(new AdvertisementCreateDto());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(AdvertisementCreateDto dto)
+        {
+            var response = await _advertisementService.CreateAsync(dto);
+            return this.ResponseRedirectAction(response, "List");
         }
     }
 }

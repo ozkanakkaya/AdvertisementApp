@@ -52,9 +52,18 @@ namespace Ozkky.AdvertisementApp.Business.Services
         {
             var query = _uow.GetRepository<AdvertisementAppUser>().GetQuery();
 
-            var list = await query.Include(x => x.Advertisement).Include(x => x.AdvertisementAppUserStatus).Include(x => x.MilitaryStatus).Include(x => x.AppUser).Where(x => x.AdvertisementAppUserStatusId == (int)type).ToListAsync();
+            var list = await query.Include(x => x.Advertisement).Include(x => x.AdvertisementAppUserStatus).Include(x => x.MilitaryStatus).Include(x => x.AppUser).ThenInclude(x => x.Gender).Where(x => x.AdvertisementAppUserStatusId == (int)type).ToListAsync();
 
             return _mapper.Map<List<AdvertisementAppUserListDto>>(list);
+        }
+
+        public async Task SetStatusAsync(int advertisementAppUserId, AdvertisementAppUserStatusType type)
+        {
+            var query = _uow.GetRepository<AdvertisementAppUser>().GetQuery();
+
+            var entity = await query.SingleOrDefaultAsync(x => x.Id == advertisementAppUserId);
+            entity.AdvertisementAppUserStatusId = (int)type;
+            await _uow.SaveChangesAsync();
         }
     }
 }

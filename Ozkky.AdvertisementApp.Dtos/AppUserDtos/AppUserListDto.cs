@@ -24,5 +24,7 @@ namespace Ozkky.AdvertisementApp.Dtos
         public string Email { get; set; }
 
         public int GenderId { get; set; }
+
+        public GenderListDto Gender { get; set; }
     }
 }

@@ -124,6 +124,13 @@ namespace Ozkky.AdvertisementApp.UI.Controllers
         public async Task<IActionResult> List()
         {
             var list = await _advertisementAppUserService.GetList(AdvertisementAppUserStatusType.Basvurdu);
+            return View(list);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SetStatus(int advertisementAppUserId, AdvertisementAppUserStatusType type)
+        {
+            await _advertisementAppUserService.SetStatusAsync(advertisementAppUserId, type);
             return View();
         }
     }

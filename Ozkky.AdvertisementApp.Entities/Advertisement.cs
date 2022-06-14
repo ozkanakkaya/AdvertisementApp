@@ -14,7 +14,7 @@ namespace Ozkky.AdvertisementApp.Entities
 
         public string Description { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         public List<AdvertisementAppUser> AdvertisementAppUsers { get; set; }
     }
